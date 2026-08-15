@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050914;
+  --surface: #111827;
+  --cell: #151D2D;
+  --text: #F8FAFC;
+  --text-muted: #8B95A7;
+
+  --player-x: #329BFF;
+  --player-o: #A66BFF;
+  --border: #303A4D;
+}
