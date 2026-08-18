@@ -1,13 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050914;
-  --surface: #111827;
-  --cell: #151D2D;
-  --text: #F8FAFC;
-  --text-muted: #8B95A7;
+    /* Background */
+    --color-bg: #ffffff;
+    --color-surface: #fafafa;
+    --color-surface-hover: #f3f3f3;
 
-  --player-x: #329BFF;
-  --player-o: #A66BFF;
-  --border: #303A4D;
+    /* Text */
+    --color-text: #111111;
+    --color-text-secondary: #555555;
+    --color-text-muted: #888888;
+
+    /* Borders */
+    --color-border: #dddddd;
+    --color-border-strong: #111111;
+
+    /* Buttons */
+    --color-button: #111111;
+    --color-button-text: #ffffff;
+
+    /* Game */
+    --color-player-x: #111111;
+    --color-player-o: #111111;
+}
+
+.dark {
+    /* Background */
+    --color-bg: #111111;
+    --color-surface: #181818;
+    --color-surface-hover: #222222;
+
+    /* Text */
+    --color-text: #ffffff;
+    --color-text-secondary: #bbbbbb;
+    --color-text-muted: #777777;
+
+    /* Borders */
+    --color-border: #333333;
+    --color-border-strong: #ffffff;
+
+    /* Buttons */
+    --color-button: #ffffff;
+    --color-button-text: #111111;
+
+    /* Game */
+    --color-player-x: #ffffff;
+    --color-player-o: #ffffff;
 }
