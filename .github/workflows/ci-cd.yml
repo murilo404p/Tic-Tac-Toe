@@ -1,0 +1,62 @@
+name: CI + CD (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+
+  ci:
+    name: CI (Build)
+    runs-on: ubuntu-latest
+
+    steps:
+      # GET CODE
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build CSS
+        run: npm run build
+
+        # JUST IN CASE
+      - name: Prepare deploy folder
+        run: |
+         mkdir deploy
+         cp -r dist deploy/
+
+        #  DEBUG (check artifact for correct linking)
+      - name: List deploy folder
+        run: |
+          ls -R deploy
+
+
+      # ARTIFACT
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+            path: deploy/dist
+
+  cd:
+    name: CD (Deploy to Pages)
+    needs: ci
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
