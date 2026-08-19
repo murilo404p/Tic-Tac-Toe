@@ -7,19 +7,19 @@
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <header>
-      <div>
-        <h2>TIC TAC TOE</h2>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    <header class="bg-(--color-bg) border border-(--color-border) min-h-25 flex justify-around">
+      <div class="flex items-center">
+        <h2 class="text-(--color-text) text-2xl font-bold">TIC TAC TOE</h2>
+      </div>
+      <div class="flex items-center">
+        <button class="cursor-pointer border border-(--color-border) rounded-[5px] p-2.5! flex bg-(--color-surface) hover:bg(--color-surface-hover)">
+          <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
       </div>
     </header>
-    <main>
-      <div id="game">
-
-      </div>
-      <div id="informations">
-        <div>
-          <p id="player-turn"></p>
+    <div id="informations" class="min-h-130 border border-(--color-border) rounded-[5px] w-100 flex flex-col bg-(--color-bg)">
+        <div class=" flex items-center justify-center">
+          <p id="player-turn" class="border border-(--color-border)">PLAYER X TURN</p>
         </div>
         <div id="score-container">
           <p>SCORE</p>
@@ -47,8 +47,7 @@
             <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
           </div>
         </div>
-      </div>
-    </main>
+    </div>
     
     <script type="module" src="/src/main.js"></script>
   </body>
