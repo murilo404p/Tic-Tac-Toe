@@ -17,41 +17,39 @@
         </button>
       </div>
     </header>
-    <div id="informations" class="h-130 border border-border rounded-[5px] w-80 bg-(--color-bg) grid grid-cols-1 grid-rows-3">
+    <div id="informations" class="w-fit px-4! border border-border rounded-[5px] bg-(--color-bg) grid grid-cols-1 grid-rows-3">
       
       <div class="flex items-center justify-center">
         <div class="flex items-center justify-center">
-          <p id="player-turn" class="border border-border p-3! rounded-[5px] font-bold">PLAYER X TURN</p>
+          <p id="player-turn" class="border border-border p-3! rounded-[11px] font-bold">PLAYER X TURN</p>
         </div>
       </div>
 
-      <div class="border-t-border border-b-border border-b border-t">
+      <div class="border-t-border border-b-border border-b border-t py-2!">
         <div class="flex">
           <p class="font-bold text-2xl">SCORE</p>
         </div>
-        <div class="grid">
-          <div class="grid-rows-3">
-              <p class="font-bold">X</p>
-              <p class="font-bold">PLAYER X</p>
-              <p id="score-player-X" class="font-bold">0</p>
+        <div class="grid grid-cols-1 grid-rows-3 gap-4">
+          <div class="grid grid-cols-[1fr_3fr_1fr]">
+              <p class="font-bold flex items-center justify-center text-2xl">X</p>
+              <p class="font-bold flex items-center justify-center">PLAYER X</p>
+              <p id="score-player-X" class="font-bold flex items-center justify-center text-2xl">0</p>
           </div>          
-          <div class="flex justify-between">
-              <p class="font-bold">O</p>
-              <p class="font-bold">PLAYER O</p>
-              <p id="score-player-O" class="font-bold">0</p>
+          <div class="grid grid-cols-[1fr_3fr_1fr]">
+              <p class="font-bold flex items-center justify-center text-2xl">O</p>
+              <p class="font-bold flex items-center justify-center">PLAYER O</p>
+              <p id="score-player-O" class="font-bold flex items-center justify-center text-2xl">0</p>
           </div>
-          <div class="flex justify-between">
-              <p class="font-bold">—</p>
-              <p class="font-bold">TIES</p>
-              <p id="score-tie" class="font-bold">0</p>
+          <div class="grid grid-cols-[1fr_3fr_1fr]">
+              <p class="font-bold flex items-center justify-center text-2xl">—</p>
+              <p class="font-bold flex items-center justify-center">TIES</p>
+              <p id="score-tie" class="font-bold flex items-center justify-center text-2xl">0</p>
           </div>
         </div>
       </div>
 
-      <div class="flex items-center justify-center">
-        <div class="flex items-center justify-center">
-          <button class="flex border border-border p-3! rounded-[5px] font-bold gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
-        </div>
+      <div class="flex items-center">
+        <button class="w-full flex border border-border p-3! rounded-[11px] font-semibold gap-2.5 bg-(--color-button) text-(--color-button-text)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>
