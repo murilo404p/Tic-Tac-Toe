@@ -6,49 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
   </head>
-  <body>
-    <header class="bg-(--color-bg) border border-(--color-border) min-h-25 flex justify-around">
+  <body class="font-[Inter]">
+    <header class="bg-(--color-bg) border border-border min-h-25 flex justify-around">
       <div class="flex items-center">
         <h2 class="text-(--color-text) text-2xl font-bold">TIC TAC TOE</h2>
       </div>
       <div class="flex items-center">
-        <button class="cursor-pointer border border-(--color-border) rounded-[5px] p-2.5! flex bg-(--color-surface) hover:bg(--color-surface-hover)">
+        <button class="cursor-pointer border border-border rounded-[5px] p-2.5! flex bg-(--color-surface) hover:bg(--color-surface-hover)">
           <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         </button>
       </div>
     </header>
-    <div id="informations" class="min-h-130 border border-(--color-border) rounded-[5px] w-100 flex flex-col bg-(--color-bg)">
-        <div class=" flex items-center justify-center">
-          <p id="player-turn" class="border border-(--color-border)">PLAYER X TURN</p>
+    <div id="informations" class="h-130 border border-border rounded-[5px] w-80 bg-(--color-bg) grid grid-cols-1 grid-rows-3">
+      
+      <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center">
+          <p id="player-turn" class="border border-border p-3! rounded-[5px] font-bold">PLAYER X TURN</p>
         </div>
-        <div id="score-container">
-          <p>SCORE</p>
-          <div>
-            <p>X</p>
-            <p>PLAYER X</p>
-            <p id="score-player-X"></p>
+      </div>
+
+      <div class="border-t-border border-b-border border-b border-t">
+        <div class="flex">
+          <p class="font-bold text-2xl">SCORE</p>
+        </div>
+        <div class="grid">
+          <div class="grid-rows-3">
+              <p class="font-bold">X</p>
+              <p class="font-bold">PLAYER X</p>
+              <p id="score-player-X" class="font-bold">0</p>
           </div>          
-          <div>
-            <p>O</p>
-            <p>PLAYER O</p>
-            <p id="score-player-O"></p>
+          <div class="flex justify-between">
+              <p class="font-bold">O</p>
+              <p class="font-bold">PLAYER O</p>
+              <p id="score-player-O" class="font-bold">0</p>
           </div>
-          <div>
-            <p>O</p>
-            <p>PLAYER O</p>
-            <p id="score-player-O"></p>
-          </div>
-          <div>
-            <p>——</p>
-            <p>TEIS</p>
-            <p id="score-tie"></p>
-          </div>
-          <div>
-            <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
+          <div class="flex justify-between">
+              <p class="font-bold">—</p>
+              <p class="font-bold">TIES</p>
+              <p id="score-tie" class="font-bold">0</p>
           </div>
         </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center">
+          <button class="flex border border-border p-3! rounded-[5px] font-bold gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
+        </div>
+      </div>
     </div>
-    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
