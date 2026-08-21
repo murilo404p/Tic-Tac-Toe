@@ -3,57 +3,105 @@
 
 :root {
     /* Background */
-    --color-bg: #ffffff;
-    --color-surface: #fafafa;
-    --color-surface-hover: #f3f3f3;
+    --bg: #ffffff;
+    --surface: #fafafa;
+    --surface-hover: #f3f3f3;
 
     /* Text */
-    --color-text: #111111;
-    --color-text-secondary: #555555;
-    --color-text-muted: #888888;
+    --text: #111111;
+    --text-secondary: #555555;
+    --text-muted: #888888;
 
     /* Borders */
-    --color-border: #dddddd;
-    --color-border-strong: #111111;
+    --border: #dddddd;
+    --border-strong: #111111;
 
     /* Buttons */
-    --color-button: #111111;
-    --color-button-text: #ffffff;
+    --button: #111111;
+    --button-text: #ffffff;
 
     /* Game */
-    --color-player-x: #111111;
-    --color-player-o: #111111;
+    --player-x: #111111;
+    --player-o: #111111;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.10);
+    --shadow-button: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --shadow-button-hover: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .dark {
     /* Background */
-    --color-bg: #111111;
-    --color-surface: #181818;
-    --color-surface-hover: #222222;
+    --bg: #111111;
+    --surface: #181818;
+    --surface-hover: #222222;
 
     /* Text */
-    --color-text: #ffffff;
-    --color-text-secondary: #bbbbbb;
-    --color-text-muted: #777777;
+    --text: #ffffff;
+    --text-secondary: #bbbbbb;
+    --text-muted: #777777;
 
     /* Borders */
-    --color-border: #333333;
-    --color-border-strong: #ffffff;
+    --border: #333333;
+    --border-strong: #ffffff;
 
     /* Buttons */
-    --color-button: #ffffff;
-    --color-button-text: #111111;
+    --button: #ffffff;
+    --button-text: #111111;
 
     /* Game */
-    --color-player-x: #ffffff;
-    --color-player-o: #ffffff;
+    --player-x: #ffffff;
+    --player-o: #ffffff;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.30);
+    --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.40);
+    --shadow-button: 0 2px 6px rgba(0, 0, 0, 0.30);
+    --shadow-button-hover: 0 4px 10px rgba(0, 0, 0, 0.40);
 }
 
 @theme {
-    --color-border: var(--color-border)
-    --color-surface: var(--color-surface)
+    /* Background */
+    --color-bg: var(--bg);
+    --color-surface: var(--surface);
+    --color-surface-hover: var(--surface-hover);
 
+    /* Text */
+    --color-text: var(--text);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-muted: var(--text-muted);
 
-    --color-button: var(--color-button)
-    --color-button-text: var(--color-button-text)
+    /* Borders */
+    --color-border: var(--border);
+    --color-border-strong: var(--border-strong);
+
+    /* Buttons */
+    --color-button: var(--button);
+    --color-button-text: var(--button-text);
+
+    /* Game */
+    --color-player-x: var(--player-x);
+    --color-player-o: var(--player-o);
+}
+
+.shadow-sm-custom {
+    box-shadow: var(--shadow-sm);
+}
+
+.shadow-card {
+    box-shadow: var(--shadow-card);
+}
+
+.shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+}
+
+.shadow-button {
+    box-shadow: var(--shadow-button);
+}
+
+.shadow-button-hover {
+    box-shadow: var(--shadow-button-hover);
 }
