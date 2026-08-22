@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
   </head>
-  <body class="font-[Inter]">
-    <header class="bg-bg border border-border min-h-25 flex justify-center relative">
+  <body class="font-[Inter] max-h-dvh h-dvh">
+    <header class="bg-bg border border-border min-h-25 flex justify-center absolute left-0 right-0">
       <div class="flex items-center">
         <h2 class="text-text text-2xl font-bold">TIC TAC TOE</h2>
       </div>
@@ -17,7 +17,7 @@
         </button>
       </div>
     </header>
-    <main class="flex justify-center gap-9">
+    <main class="flex justify-center gap-9 items-center h-full">
       <div id="game" class="w-full max-w-120 flex flex-col border border-border rounded-[5px] bg-bg shadow-card">
         <div id="game-board" class="grid grid-cols-3 gap-px bg-border-strong overflow-hidden rounded-[5px] aspect-square">
           <button class="cursor-pointer bg-bg hover:bg-surface-hover"></button>
@@ -58,7 +58,7 @@
         </div>
   
         <div class="flex items-center justify-center">
-          <button class="flex border border-border p-3! rounded-[11px] font-semibold gap-2.5 bg-button text-button-text shadow-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
+          <button id="reset-game" class="flex border border-border p-3! rounded-[11px] font-semibold gap-2.5 bg-button text-button-text shadow-button cursor-pointer duration-200 ease-in-out transform hover:scale-107"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>RESET GAME</button>
         </div>
       </div>
     </main>
