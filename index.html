@@ -12,12 +12,12 @@
         <h2 class="text-text text-2xl font-bold">TIC TAC TOE</h2>
       </div>
       <div class="flex items-center absolute bottom-0 top-1/2 -translate-y-1/2 right-8">
-        <button class="cursor-pointer border border-border rounded-[5px] p-2.5! flex bg-surface hover:bg-surface shadow-card">
+        <button id="dark-theme" class="cursor-pointer border border-border rounded-[5px] p-2.5! flex bg-surface hover:bg-surface shadow-card">
           <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         </button>
       </div>
     </header>
-    <main class="flex justify-center gap-9 items-center h-full">
+    <main class="flex justify-center gap-9 items-center h-full bg-bg">
       <div id="game" class="w-full max-w-120 flex flex-col border border-border rounded-[5px] bg-bg shadow-card">
         <div id="game-board" class="grid grid-cols-3 gap-px bg-border-strong overflow-hidden rounded-[5px] aspect-square">
           <button class="cursor-pointer bg-bg hover:bg-surface-hover"></button>
@@ -33,26 +33,26 @@
       </div>
       <div id="informations" class="w-full max-w-81.25 p-5! gap-11 flex flex-col border border-border rounded-[5px] bg-bg shadow-card">  
         <div class="flex items-center justify-center">
-          <p id="player-turn" class="border border-border p-3! rounded-[11px] font-bold shadow-card">PLAYER X TURN</p>
+          <p id="player-turn" class="border border-border p-3! rounded-[11px] font-bold shadow-card text-text">PLAYER X TURN</p>
         </div>
   
         <div class="border-t-border border-b-border border-b border-t py-6!">
-          <p class="font-bold text-2xl mb-6">SCORE</p>
+          <p class="font-bold text-2xl mb-6 text-text">SCORE</p>
           <div class="grid grid-cols-1 grid-rows-3 gap-5 items-center">
             <div class="grid grid-cols-[1fr_3fr_1fr]">
-                <p class="font-bold  text-2xl">X</p>
-                <p class="font-bold">PLAYER X</p>
-                <p id="score-player-X" class="font-bold text-right text-2xl">0</p>
+                <p class="font-bold  text-2xl text-text">X</p>
+                <p class="font-bold text-text">PLAYER X</p>
+                <p id="score-player-X" class="font-bold text-right text-2xl text-text">0</p>
             </div>          
             <div class="grid grid-cols-[1fr_3fr_1fr]">
-                <p class="font-bold  text-2xl">O</p>
-                <p class="font-bold ">PLAYER O</p>
-                <p id="score-player-O" class="font-bold text-right text-2xl">0</p>
+                <p class="font-bold  text-2xl text-text">O</p>
+                <p class="font-bold text-text">PLAYER O</p>
+                <p id="score-player-O" class="font-bold text-right text-2xl text-text">0</p>
             </div>
             <div class="grid grid-cols-[1fr_3fr_1fr]">
-                <p class="font-bold text-2xl">—</p>
-                <p class="font-bold ">TIES</p>
-                <p id="score-tie" class="font-bold text-right text-2xl">0</p>
+                <p class="font-bold text-2xl text-text">—</p>
+                <p class="font-bold text-text">TIES</p>
+                <p id="score-tie" class="font-bold text-right text-2xl text-text">0</p>
             </div>
           </div>
         </div>
