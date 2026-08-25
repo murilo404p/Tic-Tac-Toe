@@ -20,7 +20,18 @@ let currentPlayer = playerX;
 
 darkThemeButton.addEventListener("click", () => {
     document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", "dark");
+
+    const isDark = document.documentElement.classList.contains("dark");
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
 });
+
+const theme = localStorage.getItem("theme");
+
+if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+}
 
 cells.forEach((cells) => {
     cells.addEventListener("click", () => {
