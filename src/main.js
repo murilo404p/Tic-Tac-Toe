@@ -27,15 +27,31 @@ darkThemeButton.addEventListener("click", () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
+// Depois de fechar a página, verifica qual tema o localStorage guardou 
 const theme = localStorage.getItem("theme");
 
 if (theme === "dark") {
     document.documentElement.classList.add("dark");
 }
 
-cells.forEach((cells) => {
-    cells.addEventListener("click", () => {
-        
-    });
+cells.forEach((cell) => {
+    cell.addEventListener("click", playerMove);
 });
+
+function playerMove(event) {
+    const cells = event.currentTarget
+
+    if (cells.textContent !== "") {
+        return
+    }
+
+    cells.textContent = currentPlayer.symbol;
+
+    if(currentPlayer == playerX) {
+        currentPlayer = playerO
+    } else {
+        currentPlayer = playerX
+    }
+
+}
 
