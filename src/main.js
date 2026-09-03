@@ -32,26 +32,34 @@ const theme = localStorage.getItem("theme");
 
 if (theme === "dark") {
     document.documentElement.classList.add("dark");
-}
+} 
 
-cells.forEach((cell) => {
-    cell.addEventListener("click", playerMove);
+let board = [
+    "", "", "",
+    "", "", "",
+    "", "", ""
+]
+
+cells.forEach((cell, index) => {
+    cell.addEventListener("click", () => {
+        playerMove(cell, index)
+    });
 });
 
-function playerMove(event) {
-    const cells = event.currentTarget
+function playerMove(cell, index) {
+    
 
-    if (cells.textContent !== "") {
+    if (board[index] !== "") {
         return
     }
 
-    cells.textContent = currentPlayer.symbol;
+    board[index] = currentPlayer.symbol;
+    cell.textContent = currentPlayer.symbol;
 
-    if(currentPlayer == playerX) {
+    if(currentPlayer === playerX) {
         currentPlayer = playerO
     } else {
         currentPlayer = playerX
     }
 
 }
-
