@@ -5,7 +5,7 @@ const cells = document.querySelectorAll("#game-board button");
 
 const playerX = {
     name: "PLAYER X",
-    score: 0,
+    score: 0,   
     symbol: "X"
 }
 
@@ -66,6 +66,9 @@ function playerMove(cell, index) {
     cell.textContent = currentPlayer.symbol;
 
     const winnerPlayer = winner(board);
+    if (winnerPlayer) {
+        updateScore(winnerPlayer);
+    }
 
     if(currentPlayer === playerX) {
         currentPlayer = playerO
@@ -89,4 +92,13 @@ function winner(board) {
         }
     } 
     return null;
+}
+
+function updateScore(winnerPlayer) {
+    if (winnerPlayer === null) {
+        return;
+    }
+
+    winnerPlayer.score++;
+    console.log("Vencedor da rodada: " + winnerPlayer.name + " Pontos: " + winnerPlayer.score);
 }
