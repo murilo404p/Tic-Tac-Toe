@@ -68,6 +68,13 @@ function playerMove(cell, index) {
     const winnerPlayer = winner(board);
     if (winnerPlayer) {
         updateScore(winnerPlayer);
+        resetBoard(board[index], cell);
+        return;
+    } else if (board.every(cell => cell !== "" )) {
+        ties++;
+        console.log("Empate! Pontos para TIES: " + ties);
+        resetBoard(board[index], cell);
+        return;
     }
 
     if(currentPlayer === playerX) {
@@ -80,7 +87,7 @@ function playerMove(cell, index) {
 function winner(board) {
     for (const combination of combinationsWinning) {
         if (board[combination[0]] === board[combination[1]] && board[combination[1]] === board[combination[2]] && board[combination[0]] !== "") {
-            if (board[combination[0]] == playerX.symbol) {
+            if (board[combination[0]] === playerX.symbol) {
                 console.log("Vencedor: X")
                 return playerX;
             } else {
@@ -101,4 +108,9 @@ function updateScore(winnerPlayer) {
 
     winnerPlayer.score++;
     console.log("Vencedor da rodada: " + winnerPlayer.name + " Pontos: " + winnerPlayer.score);
+}
+
+function resetBoard(board, cell) {
+    board = "";
+    cell.textContent =  "";
 }
