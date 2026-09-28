@@ -2,6 +2,9 @@ import './style.css';
 
 let darkThemeButton = document.getElementById("dark-theme");
 const cells = document.querySelectorAll("#game-board button");
+let scoreX = document.getElementById("score-player-X");
+let scoreO = document.getElementById("score-player-O");
+let scoreTie = document.getElementById("score-tie");
 
 const playerX = {
     name: "PLAYER X",
@@ -68,12 +71,15 @@ function playerMove(cell, index) {
     const winnerPlayer = winner(board);
     if (winnerPlayer) {
         updateScore(winnerPlayer);
-        resetBoard(board[index], cell);
+        scoreX = winnerPlayer.score.textContent;
+        scoreO = winnerPlayer.score.textContent;
+        resetBoard();
         return;
     } else if (board.every(cell => cell !== "" )) {
         ties++;
+        resetBoard();
+        scoreTie = ties.textContent; 
         console.log("Empate! Pontos para TIES: " + ties);
-        resetBoard(board[index], cell);
         return;
     }
 
@@ -110,7 +116,14 @@ function updateScore(winnerPlayer) {
     console.log("Vencedor da rodada: " + winnerPlayer.name + " Pontos: " + winnerPlayer.score);
 }
 
-function resetBoard(board, cell) {
-    board = "";
-    cell.textContent =  "";
+function resetBoard() {
+    board = [
+        "", "", "",
+        "", "", "",
+        "", "", ""
+    ]
+
+    cells.forEach((cell) => {
+        cell.textContent = "";
+    });
 }
