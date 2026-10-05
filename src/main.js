@@ -5,6 +5,8 @@ const cells = document.querySelectorAll("#game-board button");
 let scoreX = document.getElementById("score-player-X");
 let scoreO = document.getElementById("score-player-O");
 let scoreTie = document.getElementById("score-tie");
+let playerTurn = document.getElementById("player-turn");
+let reset = document.getElementById("reset");
 
 const playerX = {
     name: "PLAYER X",
@@ -18,6 +20,7 @@ const playerO = {
     symbol: "O"
 }
 
+let roundFinshed = false;
 let ties = 0;
 let currentPlayer = playerX;
 
@@ -61,6 +64,10 @@ cells.forEach((cell, index) => {
 });
 
 function playerMove(cell, index) {
+    if (roundFinshed) {
+        return;
+    }
+    
     if (board[index] !== "") {
         return
     }
@@ -71,19 +78,31 @@ function playerMove(cell, index) {
     const winnerPlayer = winner(board);
     if (winnerPlayer) {
         updateScore(winnerPlayer);
-        resetBoard();
+        roundFinshed = true;
+        playerTurn.textContent = winnerPlayer.name + " WIN!"
+        setTimeout(() => {
+            resetBoard();
+            roundFinshed = false;
+        }, 1000);
         return;
     } else if (board.every(cell => cell !== "" )) {
         ties++;
+        roundFinshed = true;
         scoreTie.textContent = ties
-        resetBoard();
+        playerTurn.textContent = "TIE! PLAY AGAIN";
+        setTimeout(() => {
+            resetBoard();
+            roundFinshed = false;
+        }, 1000);
         return;
     }
 
     if(currentPlayer === playerX) {
         currentPlayer = playerO
+        playerTurn.textContent = playerO.name + " TURN";
     } else {
         currentPlayer = playerX
+        playerTurn.textContent = playerX.name + " TURN";
     }
 }
 
@@ -95,8 +114,6 @@ function winner(board) {
             } else {
                 return playerO;
             }
-
-            
         }
     } 
     return null;
@@ -125,3 +142,16 @@ function resetBoard() {
         cell.textContent = "";
     });
 }
+
+reset.addEventListener("click", () => {
+    playerO.score = 0;
+    scoreO.textContent = playerO.score;
+
+    playerX.score = 0;
+    scoreX.textContent = playerO.score;
+    
+    ties = 0;
+    scoreTie.textContent = ties;
+
+    playerTurn.textContent = "PLAY AGAIN!"
+}); 
