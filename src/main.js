@@ -27,6 +27,25 @@ if (theme === "dark") {
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
         const result = playerMove(index);
-        cell.textContent = result.symbol;
+        if (result.symbol === null) {
+            return;
+        } else {
+            cell.textContent = result.symbol;
+        }
+        
+        if (result.result === "winner") {
+            if (result.symbol === "X") {
+                scoreX.textContent = result.points;
+            } else {
+                scoreO.textContent = result.points;
+            } 
+            playerTurn.textContent = result.name + " WIN!";
+
+        } else if(result.result === "tie") {
+            playerTurn.textContent = "IT'S A TIE! PLAY AGAIN"
+            scoreTie.textContent = result.points
+        } else {
+            playerTurn.textContent = result.nextPlayer + " TURN"
+        }
     });
 });
