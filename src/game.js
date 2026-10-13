@@ -46,6 +46,8 @@ export function playerMove(index) {
         }
     }
 
+    const symbol = currentPlayer.symbol;
+    const name = currentPlayer.name;
     board[index] = currentPlayer.symbol;
 
     const winnerPlayer = winner(board);
@@ -54,8 +56,10 @@ export function playerMove(index) {
         updateScore(winnerPlayer);
         roundFinished = true;
         return {
-            symbol: currentPlayer.symbol,
-            result: "winner"
+            symbol: symbol,
+            result: "winner",
+            name: name,
+            points: winnerPlayer.score
         };
     }
 
@@ -63,12 +67,11 @@ export function playerMove(index) {
         ties++;
         roundFinished = true;
         return {
-            symbol: currentPlayer.symbol,
-            result:"tie"
+            symbol: symbol,
+            result:"tie",
+            points: ties
         }
     }
-
-    const symbol = currentPlayer.symbol;
 
     if (currentPlayer === playerX) {
         currentPlayer = playerO;
@@ -76,9 +79,12 @@ export function playerMove(index) {
         currentPlayer = playerX;
     }
 
+    const nextPlayer = currentPlayer.name;
+
     return {
         symbol: symbol,
-        result: "continue"
+        result: "continue",
+        nextPlayer: nextPlayer
     }
 }
 
@@ -101,11 +107,7 @@ function winner(board) {
 }
 
 function updateScore(winnerPlayer) {
-    if (winnerPlayer === playerX) {
-        winnerPlayer.score++;
-    } else if (winnerPlayer === playerO) {
-        winnerPlayer.score++;
-    }
+    winnerPlayer.score++;
 }
 
 export function resetBoard() {
