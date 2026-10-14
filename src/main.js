@@ -29,10 +29,10 @@ cells.forEach((cell, index) => {
         const result = playerMove(index);
         if (result.symbol === null) {
             return;
-        } else {
-            cell.textContent = result.symbol;
         }
         
+        cell.textContent = result.symbol;
+
         if (result.result === "winner") {
             if (result.symbol === "X") {
                 scoreX.textContent = result.points;
@@ -40,10 +40,24 @@ cells.forEach((cell, index) => {
                 scoreO.textContent = result.points;
             } 
             playerTurn.textContent = result.name + " WIN!";
+            setTimeout(() => {
+                resetBoard();
+                cells.forEach((cell) => {
+                    cell.textContent = "";
+                    playerTurn.textContent = "PLAYER X TURN";
+                });
+            }, 1000)
 
         } else if(result.result === "tie") {
             playerTurn.textContent = "IT'S A TIE! PLAY AGAIN"
             scoreTie.textContent = result.points
+            setTimeout(() => {
+                resetBoard();
+                cells.forEach((cell) => {
+                    cell.textContent = "";
+                    playerTurn.textContent = "PLAYER X TURN";
+                });
+            }, 1000)
         } else {
             playerTurn.textContent = result.nextPlayer + " TURN"
         }
