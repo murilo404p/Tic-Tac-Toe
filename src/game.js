@@ -120,3 +120,11 @@ export function resetBoard() {
     roundFinished = false;
     currentPlayer = playerX;
 }
+
+export function resetGame() {
+    resetBoard();
+
+    playerO.score = 0;
+    playerX.score = 0;
+    ties = 0;
+}
