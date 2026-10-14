@@ -116,4 +116,7 @@ export function resetBoard() {
         "", "", "",
         "", "", ""
     ];
+
+    roundFinished = false;
+    currentPlayer = playerX;
 }
