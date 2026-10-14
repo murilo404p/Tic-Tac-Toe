@@ -1,5 +1,5 @@
 import './style.css';
-import { playerX, playerMove, resetBoard } from "./game.js";
+import { playerX, playerMove, resetBoard, resetGame } from "./game.js";
 
 let darkThemeButton = document.getElementById("dark-theme");
 const cells = document.querySelectorAll("#game-board button");
@@ -8,6 +8,7 @@ let scoreO = document.getElementById("score-player-O");
 let scoreTie = document.getElementById("score-tie");
 let playerTurn = document.getElementById("player-turn");
 let reset = document.getElementById("reset");
+let roundTimer;
 
 darkThemeButton.addEventListener("click", () => {
     document.documentElement.classList.toggle("dark");
@@ -53,7 +54,7 @@ cells.forEach((cell, index) => {
 });
 
 function nextRound() {
-    setTimeout(() => {
+    roundTimer = setTimeout(() => {
         resetBoard();
 
         cells.forEach((cell) => {
@@ -63,3 +64,18 @@ function nextRound() {
         playerTurn.textContent = playerX.name + " TURN";
     }, 1000);
 }
+
+reset.addEventListener("click", () => {
+    clearTimeout(roundTimer);
+    resetGame();
+
+    scoreO.textContent = 0;
+    scoreX.textContent = 0;
+    scoreTie.textContent = 0;
+
+    playerTurn.textContent = playerX.name + " TURN";
+    
+    cells.forEach((cell) => {
+        cell.textContent = "";
+    });
+})
