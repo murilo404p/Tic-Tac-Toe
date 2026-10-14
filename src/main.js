@@ -1,5 +1,5 @@
 import './style.css';
-import { playerO, playerX, board, currentPlayer, ties, roundFinished, playerMove, resetBoard } from "./game.js";
+import { playerX, playerMove, resetBoard } from "./game.js";
 
 let darkThemeButton = document.getElementById("dark-theme");
 const cells = document.querySelectorAll("#game-board button");
@@ -40,26 +40,26 @@ cells.forEach((cell, index) => {
                 scoreO.textContent = result.points;
             } 
             playerTurn.textContent = result.name + " WIN!";
-            setTimeout(() => {
-                resetBoard();
-                cells.forEach((cell) => {
-                    cell.textContent = "";
-                    playerTurn.textContent = "PLAYER X TURN";
-                });
-            }, 1000)
+            nextRound();
 
         } else if(result.result === "tie") {
             playerTurn.textContent = "IT'S A TIE! PLAY AGAIN"
             scoreTie.textContent = result.points
-            setTimeout(() => {
-                resetBoard();
-                cells.forEach((cell) => {
-                    cell.textContent = "";
-                    playerTurn.textContent = "PLAYER X TURN";
-                });
-            }, 1000)
+            nextRound();
         } else {
             playerTurn.textContent = result.nextPlayer + " TURN"
         }
     });
 });
+
+function nextRound() {
+    setTimeout(() => {
+        resetBoard();
+
+        cells.forEach((cell) => {
+            cell.textContent = "";
+        });
+
+        playerTurn.textContent = playerX.name + " TURN";
+    }, 1000);
+}
